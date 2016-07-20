@@ -1,0 +1,5 @@
+<template name ="quizQuestions">
+    {{#each question in questions}} <!-- supposed to be {{#each questions}}-->
+        {{>questionContainer question = question}}
+    {{/each}}
+</template>

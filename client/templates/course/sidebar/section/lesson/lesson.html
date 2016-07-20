@@ -1,0 +1,30 @@
+<template name="sectionLesson">
+  {{#if Template.subscriptionsReady}}
+    <li>
+        <a class="sidebar-lesson-link">
+            {{# if editingThisCourse }}
+            {{> editableText
+                collection="lessons"
+                context=lesson
+                field="name"
+                textarea=false
+                wysiwyg=false
+                substitute='<i class="fa fa-pencil"></i>' }}
+            {{else}}
+              {{# with lesson }}
+               {{ name }}
+              {{/ with }}
+            {{/ if }}
+        </a>
+        <!-- add the view for the quizzes-->
+        <ul class="nav nav-pills nav-stacked">
+             {{#each quizzes}}
+                {{>lessonQuizTemplate}}
+             {{/each}}
+              {{#if editingThisCourse}}
+                 {{>addQuiz}}
+              {{/if}}
+        </ul>
+    </li>
+  {{/ if }}
+</template>

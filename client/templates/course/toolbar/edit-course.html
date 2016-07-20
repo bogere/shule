@@ -1,0 +1,14 @@
+<template name="editCourse">
+  <ul class="nav nav-pills navbar-right" role="tablist">
+  {{#if currentUser}}
+  {{#if isOwner}}
+    <li>
+      <a id="edit-course" class="btn btn-sm btn-success" href="#">
+        <i class="fa fa-pencil-square-o"></i>
+        {{ mf 'editCourse-editCourseButtonText' 'Edit course' }}
+      </a>
+    </li>
+    {{/if}}
+    {{/if}}
+  </ul>
+</template>

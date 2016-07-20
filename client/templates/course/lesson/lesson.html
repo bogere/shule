@@ -1,0 +1,30 @@
+<template name="lesson">
+    {{# with activeLesson }}
+    <div class="col-xs-12 col-sm-7 col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              {{> lessonName name=name activeLesson=activeLesson }}
+            </div>
+            <div class="panel-body">
+              {{> lessonText text=text activeLesson=activeLesson }}
+            </div>
+        </div>
+        <!-- adding the comments to this lesson... style it later.. u put in the panel panel default div-->
+        <div class="panel-comment">
+          <ul class="comments">
+            {{#each comments}}
+              {{>commentItem}}
+              <!-- {{>commentItem text = text activeLesson=activeLesson}}-->
+            {{/each}}
+            </ul>
+            {{#if currentUser}}
+               {{>commentSubmit}}
+               {{else}}
+               <p>please login to comment</p><!-- show him the login template -->
+            {{/if}}
+        </div>
+    </div>
+    <!--to  know more about the data context of a specific template fragment
+     {{log}}-->
+    {{/ with }}
+</template>
